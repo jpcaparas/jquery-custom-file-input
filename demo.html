@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery Custom File Input Plugin</title>
+		<meta http-equiv="Content-Type" content="text-html; charset=UTF-8" />
+	</head>
+	<body>
+		<input type="file" id="file" />
+		<p><em>Full credit to <a href="Shaun Inman" target="_blank">Shaun Inman</a> for creating the <a href="http://www.shauninman.com/archive/2007/09/10/styling_file_inputs_with_css_and_the_dom" target="_blank">SI.FILES class</a></em>.</p>
+		<script src="./src/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<script src="./src/jquery.customFile.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			//<![CDATA
+				(function($) {
+					// Create the replacement element to be overlayed on top of the file input button
+					var replacementElem = $('<div />')
+						.text("This is a DIV masquerading as a file upload button. Click it.")
+						.css({
+							background: '#ccc',
+							border: '1px solid #000',
+							display: 'block',
+							width: '200px',
+							padding: '3em',
+							background: '#f1f1f1',
+                            cursor: "pointer"
+						});
+						
+					// Call the "customFile" function passing a "replacement" property
+					// with the replacement element we've just created above.
+					$('#file').customFile(replacementElem);
+				}(jQuery));
+			//]]>
+		</script>
+	</body>
+</html>
